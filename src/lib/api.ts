@@ -53,7 +53,7 @@ export async function scanScript(pages: ScanPage[], questions: Question[]): Prom
 export async function scanStream(pages: ScanPage[], questions: Question[], onEvent: (e: ScanEvent) => void): Promise<ScanReply> {
   const body = JSON.stringify({ pages, questions: questions.map((q) => ({ id: q.id, label: q.label, text: q.text, marks: q.marks, rubric: q.rubric })) });
   let r: Response;
-  try { r = await fetch("/api/scan/stream", { method: "POST", headers: { "content-type": "application/json" }, body, signal: AbortSignal.timeout(10 * 60_000) }); }
+  try { r = await fetch("/api/scanstream", { method: "POST", headers: { "content-type": "application/json" }, body, signal: AbortSignal.timeout(10 * 60_000) }); }
   catch { throw new Error("Cannot reach the ExamEval server. Is it still running in the terminal?"); }
   if (!r.ok || !r.body) { const j = await r.json().catch(() => ({})); throw new Error((j as { error?: string }).error ?? `The server returned an error (${r.status}).`); }
   const reader = r.body.getReader(); const dec = new TextDecoder(); let buf = ""; let result: ScanReply | null = null;

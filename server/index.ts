@@ -71,7 +71,7 @@ export const handler = async (req: IncomingMessage, res: ServerResponse) => {
       console.log(`[scan] finished in ${stamp()}${r.warnings.length ? `, ${r.warnings.length} warning(s): ${r.warnings.join(" | ")}` : ""}`);
       return send(res, 200, r);
     }
-    if (url.pathname === "/api/scan/stream" && req.method === "POST") {
+    if ((url.pathname === "/api/scan/stream" || url.pathname === "/api/scanstream") && req.method === "POST") {
       const b = JSON.parse(await readBody(req)) as { pages?: Page[]; questions?: QuestionInput[] };
       if (!Array.isArray(b.pages) || !b.pages.length) return send(res, 400, { error: "Add at least one page." });
       if (!Array.isArray(b.questions) || !b.questions.length) return send(res, 400, { error: "No questions were sent." });

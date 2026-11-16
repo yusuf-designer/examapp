@@ -21,7 +21,7 @@ Roles in use: Admin (id `coe`), Evaluator, Student. Dean, Principal, HOD and Aud
 
 ## Hosting
 - Render (free): `render.yaml`. Start command `npx tsx server/index.ts`.
-- Vercel: `vercel.json` plus the prebuilt function `api/[...path].mjs`. After ANY change under `server/` or `src/lib/*` that the server imports, run `npm run build:api` and commit the new `api/[...path].mjs`. Vercel needs Supabase (no disk), and requests are limited to about 4.5 MB (the app shrinks photos to fit when `/api/health` reports `maxBodyBytes`).
+- Vercel: `vercel.json` plus the prebuilt function `api/index.mjs`. After ANY change under `server/` or `src/lib/*` that the server imports, run `npm run build:api` and commit the new `api/index.mjs`. Vercel needs Supabase (no disk), and requests are limited to about 4.5 MB (the app shrinks photos to fit when `/api/health` reports `maxBodyBytes`).
 
 ## Rules
 - Never put API keys in code, chat or git. `settings.txt` and `data/` are git-ignored.
