@@ -1,0 +1,18 @@
+# Fill in the three lines below (after the = sign), save, and keep this file private. Never share it or put it online.
+
+# Reading and grading with Mistral (https://console.mistral.ai > API keys)
+MISTRAL_API_KEY=mstrl_kSd635y99A0NyvIf24YwbhwG78HAiTUc_2cPICK
+# Optional. The grading model and the page-reading model.
+MISTRAL_MODEL=mistral-small-latest
+MISTRAL_OCR_MODEL=mistral-ocr-latest
+
+# Where the data lives. Leave both empty to keep data in a file on this computer (data/store.json).
+# From Supabase: Project Settings > API Keys > Secret keys > default (starts with sb_secret_). It is a secret.
+SUPABASE_URL=https://fwayzpedamohayejtvjq.supabase.co
+SUPABASE_SERVICE_KEY=sb_secret_2KVuGMfN9EaOwZg7wqTi8w_APsVXIoV
+
+# Optional. The port the app opens on.
+PORT=5174
+
+# Optional. Use Claude instead of Mistral by leaving MISTRAL_API_KEY empty and filling this.
+ANTHROPIC_API_KEY=

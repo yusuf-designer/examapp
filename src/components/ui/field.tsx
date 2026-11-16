@@ -1,0 +1,11 @@
+import * as React from "react";
+import { cn } from "@/lib/utils";
+import { Label } from "@/components/ui/label";
+const FieldGroup = ({ className, ...props }: React.ComponentProps<"div">) => <div className={cn("flex w-full flex-col gap-5", className)} {...props} />;
+const Field = ({ className, ...props }: React.ComponentProps<"div">) => <div role="group" className={cn("flex w-full flex-col gap-1.5", className)} {...props} />;
+const FieldLabel = ({ className, ...props }: React.ComponentProps<typeof Label>) => <Label className={cn("leading-snug", className)} {...props} />;
+const FieldDescription = ({ className, ...props }: React.ComponentProps<"p">) => <p className={cn("text-sm font-normal text-muted-foreground", className)} {...props} />;
+const FieldError = ({ className, ...props }: React.ComponentProps<"div">) => <div role="alert" className={cn("text-sm font-medium text-destructive", className)} {...props} />;
+const FieldSet = ({ className, ...props }: React.ComponentProps<"fieldset">) => <fieldset className={cn("flex flex-col gap-3", className)} {...props} />;
+const FieldLegend = ({ className, ...props }: React.ComponentProps<"legend">) => <legend className={cn("mb-1 text-sm font-semibold", className)} {...props} />;
+export { Field, FieldGroup, FieldLabel, FieldDescription, FieldError, FieldSet, FieldLegend };
